@@ -8,10 +8,10 @@ public class Graph
 {
     public void buildGraph(String sequence)
     {
-        String[] seq = sequence.split(" ");
+        String[] seq = sequence.split(" ");//O(V)
 
 
-        int[][] matrix = new int[seq.length][seq.length];
+        int[][] matrix = new int[seq.length][seq.length];//O(V^2) space
         for (int i = 0; i < matrix.length; i++)//O(V)
         {
             Arrays.fill(matrix[i], 0);
@@ -26,12 +26,11 @@ public class Graph
             matrix[i][out2] = 1;
         }
 
-        drawGraph(matrix, seq);
+        drawGraph(matrix, seq);//O(V^2)
     }
 
-    public void drawGraph(int[][] matrix, String[] strings)
+    public void drawGraph(int[][] matrix, String[] strings)//O(V^2)
     {
-        String horizontal = "";
         int maxLength = 0;
         for (int i = 0; i < strings.length; i++)//O(V)
         {
@@ -47,9 +46,9 @@ public class Graph
             System.out.print(String.format(format, s));
         System.out.println();
 
-        for (int i = 0; i < matrix.length; i++) {
+        for (int i = 0; i < matrix.length; i++) {//O(V^2)
             System.out.print(String.format(format, strings[i]));
-            for (int j = 0; j < matrix.length; j++) {
+            for (int j = 0; j < matrix.length; j++) {//O(V)
                 System.out.print(String.format(numFormat, matrix[i][j]));
             }
             System.out.println();

@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -37,7 +36,7 @@ public class WeaklyConnected
     public boolean isWeaklyConnected(int[][] matrix)
     {
         int[][] undirected = new int[matrix.length][matrix.length];
-        for (int i = 0; i < matrix.length; i++)
+        for (int i = 0; i < matrix.length; i++)//O(V^2)
         {
             for (int j = 0; j < matrix.length; j++)
             {
@@ -49,11 +48,11 @@ public class WeaklyConnected
             }
         }
 
-        for (int i = 0; i < matrix.length; i++)
+        for (int i = 0; i < matrix.length; i++)//O(V^4)
         {
             for (int j = 0; j < matrix.length; j++)
             {
-                if (!BFS(undirected, i, j))
+                if (!BFS(undirected, i, j))//O(V^2)
                     return false;
             }
         }
